@@ -64,5 +64,6 @@ clean:
 	rm -rf $(OUT_DIR)
 # A build server's entry point: clean, verify, then build and test.
 ci: clean check test
-count: build ## count the source files
+count: build ## report source files and built words
 	@ls -1 $(SRC_DIR)/*.txt | wc -l
+	@wc -w $(OUTPUTS) | tail -1
